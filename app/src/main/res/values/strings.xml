@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TanyakanAku</string>
+    <string name="tanya_aku_tentang_ir_soekarno">Tanyakan aku tentang\nIr Soekarno!</string>
+    <string name="tanyakan">Tanyakan</string>
+    <string name="lihat_dokumen">Lihat dokumen</string>
+    <string name="kalimat_terkait">Kalimat Terkait</string>
+    <string name="kata_kunci">Kata Kunci</string>
+    <string name="tipe_jawaban">Tipe Jawaban</string>
+    <string name="jawaban">Jawaban</string>
+    <string name="tulis_pertanyaan">Tulis pertanyaan...</string>
+</resources>
