@@ -1,7 +1,7 @@
 package com.radityarin.tanyakanaku.data.source
 
 import com.radityarin.tanyakanaku.data.response.AnswerResponse
-import retrofit2.Call
+import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -14,6 +14,6 @@ interface Api {
             value = "query",
             encoded = true
         ) query: String
-    ): Call<AnswerResponse>
+    ): Observable<AnswerResponse>
 
 }

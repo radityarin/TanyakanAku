@@ -4,7 +4,7 @@ import com.radityarin.tanyakanaku.R
 import org.koin.dsl.module
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
-const val DEFAULT_FONT = "fonts/GoogleSans-Regular.ttf"
+const val DEFAULT_FONT = "assets/onts/GoogleSans-Regular.ttf"
 
 val appModule = module {
 

@@ -1,38 +1,31 @@
 package com.radityarin.tanyakanaku.data.repository
 
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
+import com.radityarin.tanyakanaku.data.ApiObserver
 import com.radityarin.tanyakanaku.data.response.AnswerResponse
 import com.radityarin.tanyakanaku.data.source.Api
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 class AppRepository(private val api: Api) : Repository {
+    private val compositeDisposable = CompositeDisposable()
 
-    override suspend fun getAnswers(query: String): MutableLiveData<AnswerResponse> {
+    override fun getAnswers(
+        query: String,
+        onResult: (AnswerResponse) -> Unit
+    ) {
+        api.getAnswers(query)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : ApiObserver<AnswerResponse>(compositeDisposable) {
+                override fun onApiSuccess(data: AnswerResponse) {
+                    onResult(data)
+                }
 
-        val data: MutableLiveData<AnswerResponse> = MutableLiveData()
-
-        api.getAnswers(query).enqueue(object : Callback<AnswerResponse> {
-
-            override fun onResponse(
-                call: Call<AnswerResponse>?,
-                response: Response<AnswerResponse>?
-            ) {
-
-                data.value = response!!.body()!!
-                Log.d("cek onreponse", data.value.toString())
-
-            }
-
-            override fun onFailure(call: Call<AnswerResponse>?, t: Throwable?) {
-                Log.d("cek", "call failed")
-            }
-        })
-
-        Log.d("cek diluar enqueue", data.value.toString())
-
-        return data
+                override fun onApiError(er: Throwable) {
+                    onError(er)
+                }
+            })
     }
+
 }

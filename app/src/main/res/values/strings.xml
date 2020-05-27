@@ -8,4 +8,5 @@
     <string name="tipe_jawaban">Tipe Jawaban</string>
     <string name="jawaban">Jawaban</string>
     <string name="tulis_pertanyaan">Tulis pertanyaan...</string>
+    <string name="masukan_pertanyaan">Masukan pertanyaan terlebih dahulu</string>
 </resources>
