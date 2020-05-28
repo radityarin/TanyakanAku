@@ -6,4 +6,4 @@ Library:
 2. Koin
 3. RxJava
 
-<img src="sample.png" title="Grid Menu"/>
+<img src="sample.png" title="App UI"/>
