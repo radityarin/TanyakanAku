@@ -1,5 +1,5 @@
 # TanyakanAku
-A Simple GUI Implementation for Question Answering System API using MVVM Architecture
+A Simple GUI Implementation for Question Answering System API using MVVM Architecture.
 
 Library:
 1. Retrofit
